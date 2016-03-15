@@ -15,7 +15,7 @@ var db = mongoose.connect(dbURL, err =>{
   }
 });
 
-var routes = require('./router.js');
+var router = require('./router.js');
 var port = process.env.PORT || process.env.NODE_PORT || 3000;
 
 var app = express();
