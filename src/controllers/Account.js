@@ -15,7 +15,15 @@ var logout = (req,res) => {
 };
 
 var login = (req,res) => {
+  if(!req.body.username || !req.body.pass){
+    return res.status(400).json({error: "All fields needed."});
+  }
 
+  Account.AccountModel.authenticate(req.body.username, req.body.pass, (err, account) => {
+      if(err || !account) return res.status(401).json({error: "Wrong user name or password."});
+
+      res.json({redirect: '/maker'});
+  });
 };
 
 var signup = (req, res) => {
