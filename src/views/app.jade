@@ -9,9 +9,9 @@ block body
       a(href="/logout") Log out
   section#makeDomo
     form#domoForm(class="domoForm", name="domoForm", action="/maker", method="POST")
-      label(for="name") Name: 
+      label(for="name") Name:
       input#domoName(type="text", name="name", placeholder="Domo Name")
-      label(for="age") Age: 
+      label(for="age") Age:
       input#domoAge(type="text", name="age", placeholder="Domo Age")
       a#makeDomoSubmit(class="makeDomoSubmit", href="#") Make Domo
   section#domos
@@ -21,4 +21,4 @@ block body
       span#errorMessage
     img#domo(src="assets/img/domo.png", alt="domo")
 block scripts
-        script(src="/assets/maker.js")
+  script(src="/assets/maker.js")
