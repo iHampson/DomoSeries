@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(favicon(`${__dirname}/../client/img/favicon.png`));
 app.use(cookieParser());
 
-app.set('views engine', 'jade');
+app.set('view engine', 'jade');
 app.set('views', `${__dirname}/views`);
 
 router(app);
