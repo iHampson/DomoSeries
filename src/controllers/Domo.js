@@ -15,7 +15,7 @@ var makeDomo = (req,res) => {
   var domoData = {
     name: req.body.name,
     age: req.body.age,
-    owner: req.session.account._id,
+    owner: req.session.cookie.account._id,
   };
   var newDomo = new Domo.DomoModel(domoData);
 
