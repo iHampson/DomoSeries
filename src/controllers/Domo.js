@@ -4,7 +4,13 @@ var models = require('../models');
 var Domo = models.Domo;
 
 var makerPage = (req,res) => {
-  res.render('app');
+  Domo.DomoModel.findByOwner(req.session.account._id, (err,docs) =>{
+    if(err){
+      console.log(err);
+      return res.status(400).json({error: "Error finding Domo owners."});
+    }
+    res.render('app', {domos: docs});
+  });
 };
 
 var makeDomo = (req,res) => {
