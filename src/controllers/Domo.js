@@ -29,3 +29,4 @@ var makeDomo = (req,res) => {
 };
 
 module.exports.makerPage = makerPage;
+module.exports.make = makeDomo;
