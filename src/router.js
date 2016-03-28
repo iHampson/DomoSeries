@@ -1,16 +1,17 @@
 var controllers = require('./controllers');
+var mid = require('./middleware');
 
 var router = app => {
 
-  app.get('/login', controllers.Account.loginPage);
-  app.get('/signup', controllers.Account.signupPage);
-  app.get('/logout', controllers.Account.logout);
-  app.get('/maker', controllers.Domo.makerPage);
-  app.get('/', controllers.Account.loginPage);
+  app.get('/login', mid.requireSecure, mid.requiresLogout, controllers.Account.loginPage);
+  app.get('/signup', mid.requireSecure, mid.requiresLogout, controllers.Account.signupPage);
+  app.get('/logout', mid.requiresLogin, controllers.Account.logout);
+  app.get('/maker', mid.requiresLogin, controllers.Domo.makerPage);
+  app.get('/', mid.requireSecure, mid.requiresLogout, controllers.Account.loginPage);
 
-  app.post('/login', controllers.Account.login);
-  app.post('/signup', controllers.Account.signup);
-  app.post('/maker', controllers.Domo.make);
+  app.post('/login', mid.requireSecure, mid.requiresLogout, controllers.Account.login);
+  app.post('/signup', mid.requireSecure, mid.requiresLogout, controllers.Account.signup);
+  app.post('/maker', mid.requiresLogin, controllers.Domo.make);
 };
 
 module.exports = router;

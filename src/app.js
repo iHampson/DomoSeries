@@ -7,6 +7,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var session = require('express-session');
+var RedisStore = require('connect-redis')(session);
+var url = require('url');
 
 var dbURL = process.env.MONGOLAB_URI || "mongodb://localhost/DomoMaker";
 var db = mongoose.connect(dbURL, err =>{
@@ -15,6 +17,16 @@ var db = mongoose.connect(dbURL, err =>{
     throw(err);
   }
 });
+
+var redisURL = {
+  hostname: 'localhost',
+  port: 6379,
+};
+var redisPass;
+if(process.env.REDISCLOUD_URL){
+  redisURL = url.parse(process.env.REDISCLOUD_URL);
+  redisPass = redisURL.auth.split(":")[1];
+}
 
 var router = require('./router.js');
 var port = process.env.PORT || process.env.NODE_PORT || 3000;
@@ -27,6 +39,11 @@ app.use(favicon(`${__dirname}/../client/img/favicon.png`));
 app.use(cookieParser());
 app.use(session({
   key:"sessionid",
+  store: new RedisStore({
+    host: redisURL.hostname,
+    port: redisURL.port,
+    pass: redisPass,
+  }),
   secret: "Domo Arigato",
   resave: true,
   saveUninitialized: true,
