@@ -41,8 +41,9 @@ app.disable('x-powered-by');
 app.use(cookieParser());
 app.use(csrf);
 app.use((err, req, res, next) => {
-  var checkSense = err.code !== 'EBADCSRFTOKEN';
-  checkSense ? next(err) : return;
+  // var checkSense = err.code !== 'EBADCSRFTOKEN';
+  // return checkSense ? next(err) : "";
+  err.code !== 'EBADCSRFTOKEN' && next(err);
 });
 app.use(session({
   key:"sessionid",
