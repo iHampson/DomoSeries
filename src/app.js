@@ -42,7 +42,7 @@ app.use(cookieParser());
 app.use(csrf);
 app.use((err, req, res, next) => {
   var checkSense = err.code !== 'EBADCSRFTOKEN';
-  checkSense ? next(err) : ;
+  checkSense ? next(err) : return;
 });
 app.use(session({
   key:"sessionid",
