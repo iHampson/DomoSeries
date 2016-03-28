@@ -39,16 +39,6 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(favicon(`${__dirname}/../client/img/favicon.png`));
 app.disable('x-powered-by');
 app.use(cookieParser());
-app.use(csrf);
-app.use((err, req, res, next) => {
-  // var checkSense = err.code !== 'EBADCSRFTOKEN';
-  // return checkSense ? next(err) : "";
-  // err.code !== 'EBADCSRFTOKEN' && next(err);
-  // if(err.code !== 'EBADCSRFTOKEN'){
-  //   return next(err);
-  // }
-  // return;
-});
 app.use(session({
   key:"sessionid",
   store: new RedisStore({
@@ -63,6 +53,16 @@ app.use(session({
     httpOnly: true,
   },
 }));
+app.use(csrf);
+app.use((err, req, res, next) => {
+  // var checkSense = err.code !== 'EBADCSRFTOKEN';
+  // return checkSense ? next(err) : "";
+  // err.code !== 'EBADCSRFTOKEN' && next(err);
+  if(err.code !== 'EBADCSRFTOKEN'){
+    return next(err);
+  }
+  return;
+});
 
 app.set('view engine', 'jade');
 app.set('views', `${__dirname}/views`);
