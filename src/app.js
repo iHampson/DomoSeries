@@ -54,14 +54,12 @@ app.use(session({
   },
 }));
 app.use(csrf);
-app.use((err, req, res, next) => {
+app.use( (err, req, res, next) => {
+  if(err.code !== 'EBADCSRFTOKEN'){ return next(err); }
+  // return;
   // var checkSense = err.code !== 'EBADCSRFTOKEN';
   // return checkSense ? next(err) : "";
   // err.code !== 'EBADCSRFTOKEN' && next(err);
-  if(err.code !== 'EBADCSRFTOKEN'){
-    return next(err);
-  }
-  return;
 });
 
 app.set('view engine', 'jade');
