@@ -9,7 +9,7 @@ var makerPage = (req,res) => {
       console.log(err);
       return res.status(400).json({error: "Error finding Domo owners."});
     }
-    res.render('app');//, {csrfToken: csrfToken(), domos: docs});
+    res.render('app', {csrfToken: csrfToken(), domos: docs});
   });
 };
 
