@@ -43,7 +43,11 @@ app.use(csrf);
 app.use((err, req, res, next) => {
   // var checkSense = err.code !== 'EBADCSRFTOKEN';
   // return checkSense ? next(err) : "";
-  err.code !== 'EBADCSRFTOKEN' && next(err);
+  // err.code !== 'EBADCSRFTOKEN' && next(err);
+  if(err.code !== 'EBADCSRFTOKEN'){
+    return next(err);
+  }
+  return;
 });
 app.use(session({
   key:"sessionid",
