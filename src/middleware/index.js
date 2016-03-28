@@ -1,14 +1,14 @@
 var requiresLogin = (req, res, next) => {
-  req.session.account ? next() : return res.redirect('/');
+  req.session.account ? next() : res.redirect('/');
 };
 
 var requiresLogout = (req, res, next) => {
-  req.session.account ? return res.redirect('/maker') : next();
+  req.session.account ? res.redirect('/maker') : next();
 };
 
 var requireSecure = (req, res, next) => {
   var checkHead = req.headers['x-forwarded-proto'] != 'https';
-  checkHead ? return res.redirect(`https://${req.hostname}${req.url}`) : next();
+  checkHead ? res.redirect(`https://${req.hostname}${req.url}`) : next();
 };
 
 var bypassSecure = (req, res, next) => {
