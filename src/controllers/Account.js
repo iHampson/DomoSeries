@@ -3,6 +3,7 @@ var models = require('../models');
 var Account = models.Account;
 
 var loginPage = (req,res) => {
+  console.log("serving login Page.");
   res.render('login', {csrfToken: req.csrfToken()});
 };
 
