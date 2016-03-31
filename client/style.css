@@ -200,6 +200,7 @@ nav:nth-child(1) {
     border-radius: 4px;
     margin: 0 auto;
     margin-top: 100px;
+    padding: 10;
 }
 
 .domo {
@@ -268,8 +269,6 @@ h3.domoHeight {
 
 .domo:first-child {
     margin-top: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
 }
 
 .domo:last-child {
