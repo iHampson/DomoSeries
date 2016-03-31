@@ -258,7 +258,7 @@ h3.domoAge {
 }
 
 h3.domoHeight {
-    float:right;
+    float:left;
     text-align: left;
     width: 100px;
     font-weight: bold;
