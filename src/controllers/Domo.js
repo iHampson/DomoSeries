@@ -4,7 +4,7 @@ var models = require('../models');
 var Domo = models.Domo;
 
 var makerPage = (req,res) => {
-  Domo.DomoModel.findByOwner(req.session.account._id, (err,docs) =>{
+  Domo.DomoModel.findByOwner(req.session.account._id, (err,docs) => {
     if(err){
       console.log(err);
       return res.status(400).json({error: "Error finding Domo owners."});
@@ -37,7 +37,17 @@ var makeDomo = (req,res) => {
 };
 
 var deleteDomo = (req, res) => {
-  Domo.DomoModel.findByOwner()
+  Domo.DomoModel.remove({
+    name: req.body.name,
+    owner: mongoose.Types.ObjectId(req.session.account._id),},
+  err => {
+    err && console.log(err) && return res.status(400).json({error: "Error deleting the domo."});
+  });
+  Domo.DomoModel.findByOwner(req.session.account._id, (err,docs) => {
+    err && console.log(err) && return res.status(400).json({error: "Error searching for domo owner."});
+
+    res.render('app', {csrfToken: req.csrfToken(), domos: docs});
+  });
 };
 
 module.exports.makerPage = makerPage;
