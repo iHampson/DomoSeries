@@ -249,6 +249,15 @@ h3.domoName {
 }
 
 h3.domoAge {
+    float:left;
+    text-align: left;
+    width: 100px;
+    font-weight: bold;
+    padding-left: 40px;
+    font-size: 1.5em;
+}
+
+h3.domoAge {
     float:right;
     text-align: left;
     width: 100px;
