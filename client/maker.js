@@ -43,8 +43,14 @@ $(document).ready(function() {
     });
 
     $(".domoDelete").on("click", e => {
-      //e.preventDefault();
-
+      e.preventDefault();
+      var domoData = {
+        name:
+        age:
+        height:
+        owner
+      };
+      sendAjax("/domoDelete",)
     });
 
 });

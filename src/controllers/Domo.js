@@ -14,7 +14,7 @@ var makerPage = (req,res) => {
 };
 
 var makeDomo = (req,res) => {
-// This should be seperate methods to check if the form is filled out then a method to make the domo
+  //This should be seperate methods to check if the form is filled out then a method to make the domo
   if(!req.body.name || !req.body.age || !req.body.height){
     return res.status(400).json({error: "All fields are required."});
   }
@@ -36,5 +36,10 @@ var makeDomo = (req,res) => {
   });
 };
 
+var deleteDomo = (req, res) => {
+  Domo.DomoModel.findByOwner()
+};
+
 module.exports.makerPage = makerPage;
 module.exports.make = makeDomo;
+module.exports.delete = deleteDomo;
