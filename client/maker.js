@@ -42,4 +42,9 @@ $(document).ready(function() {
         return false;
     });
 
+    $(".domoDelete").on("click", e => {
+      //e.preventDefault();
+
+    });
+
 });
