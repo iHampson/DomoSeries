@@ -6,7 +6,7 @@ $(document).ready(function() {
         $("#errorMessage").text(message);
         $("#domoMessage").animate({width:'toggle'},350);
     }
-    
+
     function sendAjax(action, data) {
         $.ajax({
             cache: false,
@@ -21,25 +21,25 @@ $(document).ready(function() {
             },
             error: function(xhr, status, error) {
                 var messageObj = JSON.parse(xhr.responseText);
-            
+
                 handleError(messageObj.error);
             }
-        });        
+        });
     }
-    
+
     $("#makeDomoSubmit").on("click", function(e) {
         e.preventDefault();
-    
+
         $("#domoMessage").animate({width:'hide'},350);
-    
-        if($("#domoName").val() == '' || $("#domoAge").val() == '') {
+
+        if($("#domoName").val() == '' || $("#domoAge").val() == '' || $("#domoHeight").val() == '') {
             handleError("RAWR! All fields are required");
             return false;
         }
 
         sendAjax($("#domoForm").attr("action"), $("#domoForm").serialize());
-        
+
         return false;
     });
-    
+
 });
