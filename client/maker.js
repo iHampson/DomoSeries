@@ -53,7 +53,7 @@ $(document).ready(function() {
       //   owner
       // };
       console.log(toDelete);
-      sendAjax("/domoDelete",)
+      // sendAjax("/domoDelete",)
     });
 
 });
