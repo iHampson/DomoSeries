@@ -46,12 +46,12 @@ $(document).ready(function() {
       e.preventDefault();
       console.log("Delete Clicked");
       var toDelete = e.target.parent;
-      var domoData = {
-        name:
-        age:
-        height:
-        owner
-      };
+      // var domoData = {
+      //   name:
+      //   age:
+      //   height:
+      //   owner
+      // };
       console.log(toDelete);
       sendAjax("/domoDelete",)
     });
