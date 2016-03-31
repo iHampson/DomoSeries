@@ -44,12 +44,15 @@ $(document).ready(function() {
 
     $(".domoDelete").on("click", e => {
       e.preventDefault();
+      console.log("Delete Clicked");
+      var toDelete = e.target.parent;
       var domoData = {
         name:
         age:
         height:
         owner
       };
+      console.log(toDelete);
       sendAjax("/domoDelete",)
     });
 
