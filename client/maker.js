@@ -45,7 +45,7 @@ $(document).ready(function() {
     $(".domoDelete").on("click", e => {
       e.preventDefault();
       console.log("Delete Clicked");
-      var toDelete = e.target.parent;
+      var toDelete = e.target;
       // var domoData = {
       //   name:
       //   age:
