@@ -39,6 +39,7 @@ DomoSchema.methods.toAPI = () => {
   return {
     name: this.name,
     age: this.age,
+    height: this.height,
   };
 };
 

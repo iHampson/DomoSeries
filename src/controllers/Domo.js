@@ -18,7 +18,7 @@ var makeDomo = (req,res) => {
   if(!req.body.name || !req.body.age || !req.body.height){
     return res.status(400).json({error: "All fields are required."});
   }
-  console.log(req.session);
+  // console.log(req.session);
   var domoData = {
     name: req.body.name,
     age: req.body.age,
