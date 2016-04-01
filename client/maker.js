@@ -46,7 +46,7 @@ $(document).ready(function() {
       console.log("Delete Clicked");
       var toDelete = e.target;
       var domoData = {
-        name: e.target.domoName;
+        name: e.target.domoName,
       };
       console.log(domoData);
       // sendAjax("/domoDelete",)
