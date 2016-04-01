@@ -44,10 +44,10 @@ $(document).ready(function() {
 
     $(".domoDelete").on("click", e => {
       console.log("Delete Clicked",e);
-      var toDelete = e.target;
+      var toDelete = e.target.dataset.domoname;
 
       var domoData = {
-        name: toDelete.dataset.domoName,
+        name: toDelete,
       };
       console.log(domoData);
       // sendAjax("/domoDelete",)
