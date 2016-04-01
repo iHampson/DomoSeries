@@ -43,8 +43,9 @@ $(document).ready(function() {
     });
 
     $(".domoDelete").on("click", e => {
-      console.log("Delete Clicked");
+      console.log("Delete Clicked",e);
       var toDelete = e.target;
+
       var domoData = {
         name: toDelete.dataset.domoName,
       };
