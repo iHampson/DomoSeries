@@ -27,7 +27,7 @@ block body
           img(class="domoFace", src="/assets/img/domoface.jpeg", alt="domo face")
           h3.domoName Name: #{val.name}
           h3.domoAge Age: #{val.age}
-          - var domoName = #{ val.name }
+          - var domoName = val.name
           a.domoDelete(href="#", data-domoName=domoName) X
           h3.domoHeight Height: #{val.height}
   #domoMessage
