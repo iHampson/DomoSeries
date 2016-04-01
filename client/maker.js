@@ -43,16 +43,12 @@ $(document).ready(function() {
     });
 
     $(".domoDelete").on("click", e => {
-      e.preventDefault();
       console.log("Delete Clicked");
       var toDelete = e.target;
-      // var domoData = {
-      //   name:
-      //   age:
-      //   height:
-      //   owner
-      // };
-      console.log(toDelete);
+      var domoData = {
+        name: e.target.domoName;
+      };
+      console.log(domoData);
       // sendAjax("/domoDelete",)
     });
 
