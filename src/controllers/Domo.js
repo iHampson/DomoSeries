@@ -35,25 +35,25 @@ var makeDomo = (req,res) => {
   });
 };
 
-var deleteDomo = (req, res) => {
-  console.log("delete hit.");
-  res.staus(200).send();//json({redirect: '/maker'});
-
-  // Domo.DomoModel.find({
-  //   name: req.body.name,
-  //   owner: req.session.account._id,
-  // },
-  // (err, domo) => {
-  //   if(err){
-  //     console.log(err)
-  //     return res.status(400).json({error: "Error deleting the domo."});
-  //   }
-  //   else{
-  //     domo.remove();
-  //     res.json({redirect: '/maker'});
-  //   }
-  // });
-};
+// var deleteDomo = (req, res) => {
+//   console.log("delete hit.");
+//   res.staus(200).send();//json({redirect: '/maker'});
+//
+//   Domo.DomoModel.find({
+//     name: req.body.name,
+//     owner: req.session.account._id,
+//   },
+//   (err, domo) => {
+//     if(err){
+//       console.log(err)
+//       return res.status(400).json({error: "Error deleting the domo."});
+//     }
+//     else{
+//       domo.remove();
+//       res.json({redirect: '/maker'});
+//     }
+//   });
+// };
 
 var showAll = (req, res) => {
   Domo.DomoModel.findAll((err,docs) =>{
@@ -67,5 +67,5 @@ var showAll = (req, res) => {
 
 module.exports.makerPage = makerPage;
 module.exports.make = makeDomo;
-module.exports.remove = deleteDomo;
+// module.exports.remove = deleteDomo;
 module.exports.showAll = showAll;

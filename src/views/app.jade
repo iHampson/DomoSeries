@@ -17,6 +17,7 @@ block body
       input#domoHeight(type="text", name="height", placeholder="Domo Height")
       input(type="hidden", name="_csrf" value="#{csrfToken}")
       a#makeDomoSubmit(class="makeDomoSubmit", href="#") Make Domo
+      a#showAll( href="#" ) Show All Domos
   section#domos
     if !domos || domos.length == 0
       div.domo
@@ -28,7 +29,6 @@ block body
           h3.domoName Name: #{val.name}
           h3.domoAge Age: #{val.age}
           - var domoName = val.name
-          a.domoDelete(href="#", data-domoName=domoName) X
           h3.domoHeight Height: #{val.height}
   #domoMessage
     img#speech(src="/assets/img/speech.png", alt="speech box")

@@ -42,16 +42,10 @@ $(document).ready(() => {
         return false;
     });
 
-    $(".domoDelete").on("click", e => {
+    $("#showAll").on("click", e => {
       e.preventDefault();
-      console.log("Delete Clicked");
-      var toDelete = e.target.dataset.domoname;
-
-      var domoData = {
-        name: toDelete,
-      };
-      console.log(domoData);
-      sendAjax("/domoDelete",domoData);
+      console.log("showAll Clicked" , e);
+      sendAjax("/domoDelete",{});
     });
 
 });

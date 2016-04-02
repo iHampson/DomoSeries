@@ -13,7 +13,7 @@ var router = app => {
   app.post('/login', mid.requireSecure, mid.requiresLogout, controllers.Account.login);
   app.post('/signup', mid.requireSecure, mid.requiresLogout, controllers.Account.signup);
   app.post('/maker', mid.requiresLogin, controllers.Domo.make);
-  app.post('/domoDelete', mid.requiresLogin, controllers.Domo.makerPage);
+  // app.post('/domoDelete', mid.requiresLogin, controllers.Domo.makerPage);
 };
 
 module.exports = router;
