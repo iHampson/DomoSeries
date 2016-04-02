@@ -37,7 +37,8 @@ var makeDomo = (req,res) => {
 };
 
 var deleteDomo = (req, res) => {
-  res.json({redirect: '/maker'});
+  console.log("delete hit.");
+  res.staus(200).send();//json({redirect: '/maker'});
 
   // Domo.DomoModel.find({
   //   name: req.body.name,
