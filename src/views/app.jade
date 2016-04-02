@@ -7,6 +7,10 @@ block body
       img#logo(src="/assets/img/face.png", alt="face logo")
     .navlink
       a(href="/logout") Log out
+      if some
+        a#showAll( class="makeDomoSubmit", href="/allDomos" ) Show All Domos
+      else
+        a#showMine( class="makeDomoSubmit", href="/maker" ) Show My Domos
   section#makeDomo
     form#domoForm(class="domoForm", name="domoForm", action="/maker", method="POST")
       label(for="name") Name:
@@ -17,10 +21,7 @@ block body
       input#domoHeight(type="text", name="height", placeholder="Domo Height")
       input(type="hidden", name="_csrf" value="#{csrfToken}")
       a#makeDomoSubmit(class="makeDomoSubmit", href="#") Make Domo
-      if some
-        a#showAll( href="/allDomos" ) Show All Domos
-      else
-        a#showMine( href="/maker" ) Show My Domos
+
   section#domos
     if !domos || domos.length == 0
       div.domo
