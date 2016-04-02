@@ -9,7 +9,7 @@ var makerPage = (req,res) => {
       console.log(err);
       return res.status(400).json({error: "Error finding Domo owners."});
     }
-    res.render('app', {csrfToken: req.csrfToken(), domos: docs});
+    res.render('app', {csrfToken: req.csrfToken(), domos: docs, some:true});
   });
 };
 
@@ -61,7 +61,7 @@ var showAll = (req, res) => {
       console.log(err);
       return res.status(400).json({error: "Error finding Domos."});
     }
-    res.render('app', {csrfToken: req.csrfToken(), domos: docs});
+    res.render('app', {csrfToken: req.csrfToken(), domos: docs, some: false});
   });
 };
 
