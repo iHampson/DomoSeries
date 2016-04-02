@@ -41,11 +41,11 @@ $(document).ready(() => {
 
         return false;
     });
-
-    $("#showAll").on("click", e => {
-      e.preventDefault();
-      console.log("showAll Clicked" , e);
-      sendAjax("/domoDelete",{});
-    });
+    
+    // $("#showAll").on("click", e => {
+    //   e.preventDefault();
+    //   console.log("showAll Clicked" , e);
+    //   redirect("/allDomos")
+    // });
 
 });

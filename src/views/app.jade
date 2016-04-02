@@ -17,7 +17,7 @@ block body
       input#domoHeight(type="text", name="height", placeholder="Domo Height")
       input(type="hidden", name="_csrf" value="#{csrfToken}")
       a#makeDomoSubmit(class="makeDomoSubmit", href="#") Make Domo
-      a#showAll( href="#" ) Show All Domos
+      a#showAll( href="/allDomos" ) Show All Domos
   section#domos
     if !domos || domos.length == 0
       div.domo
