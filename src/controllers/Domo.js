@@ -56,7 +56,13 @@ var deleteDomo = (req, res) => {
 };
 
 var showAll = (req, res) => {
-  
+  Domo.findAll((err,docs) =>{
+    if(err){
+      console.log(err);
+      return res.status(400).json({error: "Error finding Domos."});
+    }
+    res.render('app', {csrfToken: req.csrfToken(), domos: docs});
+  });
 };
 
 module.exports.makerPage = makerPage;
