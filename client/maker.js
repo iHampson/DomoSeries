@@ -1,6 +1,6 @@
 "use strict";
 
-$(document).ready(function() {
+$(document).ready(() => {
 
     function handleError(message) {
         $("#errorMessage").text(message);
@@ -43,14 +43,15 @@ $(document).ready(function() {
     });
 
     $(".domoDelete").on("click", e => {
-      console.log("Delete Clicked",e);
+      e.preventDefault();
+      console.log("Delete Clicked");
       var toDelete = e.target.dataset.domoname;
 
       var domoData = {
         name: toDelete,
       };
       console.log(domoData);
-      // sendAjax("/domoDelete",)
+      sendAjax("/domoDelete",domoData);
     });
 
 });
