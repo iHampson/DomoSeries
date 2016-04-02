@@ -58,4 +58,4 @@ var deleteDomo = (req, res) => {
 
 module.exports.makerPage = makerPage;
 module.exports.make = makeDomo;
-module.exports.delete = deleteDomo;
+module.exports.remove = deleteDomo;
