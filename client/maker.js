@@ -51,7 +51,7 @@ $(document).ready(() => {
         name: toDelete,
       };
       console.log(domoData);
-      sendAjax("/domoDelete",domoData);
+      sendAjax("/allDomos",domoData);
     });
 
 });
