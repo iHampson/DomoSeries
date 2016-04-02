@@ -37,16 +37,20 @@ var makeDomo = (req,res) => {
 };
 
 var deleteDomo = (req, res) => {
-  Domo.DomoModel.remove(
-  { name: req.body.name,
-    owner: mongoose.Types.ObjectId(req.session.account._id),},
-  err => {
+  Domo.DomoModel.find({
+    name: req.body.name,
+    owner: req.session.account._id,
+  },
+  (err, domo) => {
     if(err){
       console.log(err)
       return res.status(400).json({error: "Error deleting the domo."});
     }
+    else{
+      domo.remove();
+      res.json({redirect: '/maker'});
+    }
   });
-  res.json({redirect: '/maker'});
 };
 
 module.exports.makerPage = makerPage;
